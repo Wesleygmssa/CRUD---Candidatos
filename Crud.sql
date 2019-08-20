@@ -1,19 +1,21 @@
 
-create database Cadastro
+use crud;
 
-use Cadastro
+create database crud;
+
 
 Create table Candidatos(
-	
-	id int identity(1,1) primary key,
-	Nome varchar(50) not null,
-	Sobrenome varchar(50) not null,
-	CPF varchar(20) not null,
-	RG varchar(20) not null,
-	Nome_Mae varchar(100) not null,
-	Nome_Pai varchar(100) not null
 
-)
+id int auto_increment primary key,
+Nome varchar(50) not null,
+Sobrenome varchar(50) not null,
+CPF varchar(20) not null,
+RG varchar(20) not null,
+Nome_Mae varchar(100) not null,
+Nome_Pai varchar(100) not null
+);
+
+select * from Candidatos;
 
 select * from Candidatos
 

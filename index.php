@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href=>
 	<title>Candidatos</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+	p
 
 	<div class="container">
 		<div class="box">
@@ -22,8 +24,8 @@
 		
 		<form action="Visualizar_candidato.php">
 			<button class="button"> Excluir </button>
+			
 		</form>
 		</div>
 	</div>
 </body>
-</html>
