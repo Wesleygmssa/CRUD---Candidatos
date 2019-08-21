@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	p
+	
 
 	<div class="container">
 		<div class="box">
@@ -29,3 +29,4 @@
 		</div>
 	</div>
 </body>
+
