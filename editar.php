@@ -1,24 +1,41 @@
-<?php 
-  session_start(); //iniciando sesssão.Para exibir a mensagem da sessão da arquivo create.php?> 
-  <?php   include_once 'includes/header.inc.php'; ?>
-  <?php include_once 'includes/menu.inc.php' ?>
+ <?php   include_once 'includes/header.inc.php'; ?>
+ <?php include_once 'includes/menu.inc.php' ?>
 
-      
-      <!--Formulario de cadastro-->
+  <div class="row container">
+  	<div class="col s12">
+  		<h5 class="light">Edição de registros</h5><hr>
+  	</div>
+  	
+  </div>
+
+  <?php 
+     include_once 'banco de dados/conexao.php'; //PEGANDO A CONEXAO DO BANCO DE DADOS.
+     //PEGANDO DADOS VIA GET QUE VEM DO ARQUIVO READ.PHP LINHA 20.
+     $id = filter_input(INPUT_GET,'id' , FILTER_SANITIZE_NUMBER_INT)
+     
+     //nome da variavel poder se nome que voce quiser.
+     //FAZENDO O SELECT
+     $querySelect = $link->query("select * from candidatos where id='$id'");
+
+     while ($registros = $querySelect->fetch_assoc()) {
+     	$id = $registros['id'];
+     	$nome = $registros['nome'];
+     	$matricula = $registros['matricula'];
+     	$cpf = $registros['cpf'];
+     	$rg = $registros['rg'];
+     	$nome_mae = $registros['nome_mae'];
+     	$nome_pai = $registros['nome_pai'];
+     }
+
+ ?>
+
+ <!--Formulario de cadastro-->
       <div class="row container">
-        <form action="banco_de_dados/create.php" method="post" class="col s12">
+        <form action="banco_de_dados/update.php" method="post" class="col s12">
           <fieldset class="fomulario">
             <legend><img src="imagens/avatar2.jpg" alt="(imagem)" width="100"></legend>
-            <h5 class="light center"> Cadastro de Clientes</h5>
-            <?php  
-                if (isset($_SESSION['msg'])) { /* Verificando se a variael reamente existe.*/
-                    echo $_SESSION['msg'];     /*exibindo a mensagem na tela*/
-                    session_unset();           /*limpando pra não ficar exibindo na tela*/
-                                                /*mensagem vem do create.php*/
-                }
-
-
-            ?>
+            <h5 class="light center"> Alteração </h5>
+     
 
             <!-- campo nome -->
             <div class="input-field col s12">
@@ -75,8 +92,4 @@
         </form>
       </div>
 
-
-
-      <?php include_once 'includes/footer.inc.php' ?>
-
-       
+ <?php include_once 'includes/footer.inc.php' ?>
