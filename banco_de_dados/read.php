@@ -4,7 +4,7 @@ include_once'conexao.php';
 
 //Pegar a variavel link selecionando todos campos da tabela candidatos.
 $querySelect = $link->query("select * from Candidatos"); 
-while($registros = $querySelect->fetch_assoc()){// Enquanto minha variavel registro tiver $querySelect (Valor associado)
+while($registros = $querySelect->fetch_assoc()){// Enquanto minha variavel registro tiver $querySelect (Valor associado fazendo a leitura de todos registro)
     $id = $registros['id'];
 	$nome = $registros['nome']; //Adicionar na variavel $nome o que esta na variavel $registro porem no indice nome da tabela.
 	$matricula = $registros['matricula'];//
@@ -17,8 +17,12 @@ while($registros = $querySelect->fetch_assoc()){// Enquanto minha variavel regis
 	//Exibindo uma tabela com os nomes.
 	//fazendo o include desse arquivo para consultas.php 
 	echo "<tr>";
-	echo " <td>$nome</td> <td>$matricula</td> <td>$cpf</td> <td>$rg</td> <td>$nome_mae</td> <td>$nome_pai</td>       <td><a href='editar.php?id=$id'><i class='material-icons'>edit</i></td>   <td><a href='banco_de_dados/delete.php?id=$id'><i class='material-icons'>delete</i></td> ";
-	echo"</tr>";
+	echo "<td>$nome</td> <td>$matricula</td> <td>$cpf</td> <td>$rg</td> <td>$nome_mae</td> <td>$nome_pai</td>";   
+	echo "<td><a href='editar.php?id=$id'><i class='material-icons'>edit</i></a></td>";   
+	echo "<td><a href='banco_de_dados/delete.php?id=$id'><i class='material-icons'>delete</i></td>";
+	echo "</tr>";
+
+	//PASSADO DADOS VIA GET....$ID
 
 
 	//<td><a href='editar.php?id=$id'><i class='material-icons'>edit</i></td> --> direcionando para parte de edição.php dos dados no banco de dados. linha 20.
